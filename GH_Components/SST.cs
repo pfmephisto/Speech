@@ -69,8 +69,8 @@ namespace Speech.GH_Components
 
             if (!active)
             {
-                deepSpeech.CreateModel(aModelPath, aBeamWidth);
-                deepSpeech.EnableDecoderWithLM(lmBinary, triePath, lm_alpha, lm_beta);
+                //deepSpeech.CreateModel(aModelPath, aBeamWidth);
+                //deepSpeech.EnableDecoderWithLM(lmBinary, triePath, lm_alpha, lm_beta);
 
                 active = true;
             }
