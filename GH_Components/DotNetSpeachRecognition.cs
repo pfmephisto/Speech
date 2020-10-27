@@ -16,7 +16,7 @@ using System.Globalization;
 
 namespace Speech.GH_Components
 {
-    public class SpeechRecognition : GH_Component
+    public class DotNetSpeachRecognition : GH_Component
     {
         SpeechRecognitionEngine recognizer = new SpeechRecognitionEngine();
         DictationGrammar dgrammer = new DictationGrammar();
@@ -50,9 +50,9 @@ namespace Speech.GH_Components
         /// Subcategory the panel. If you use non-existing tab or panel names, 
         /// new tabs/panels will automatically be created.
         /// </summary>
-        public SpeechRecognition()
-          : base("SpeechRecognition", "SpeechRecognition",
-              "Return speach as text",
+        public DotNetSpeachRecognition()
+          : base(".Net Speech Recognition", "nSR",
+              "Speech recognition using the .net framework",
               "Audio", "Speech")
         {
         }

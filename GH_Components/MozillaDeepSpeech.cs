@@ -9,16 +9,13 @@ using DeepSpeechClient;
 
 namespace Speech.GH_Components
 {
-    public class SST : GH_Component
+    public class MozillaDeepSpeech : GH_Component
     {
-        bool active = false;
-
-        DeepSpeech deepSpeech = new DeepSpeech(@"C:\Users\psf\source\repos\faust\libs\DeepSpeach\deepspeech-0.6.0-models\output_graph.pb");
 
         /// <summary>
         /// Initializes a new instance of the MyComponent1 class.
         /// </summary>
-        public SST()
+        public MozillaDeepSpeech()
           : base("DeepSpeech", "dS",
               "Mozilla DeepSpeach client implmentation",
               "Audio", "Speech")
@@ -50,11 +47,17 @@ namespace Speech.GH_Components
         /// <param name="DA">The DA object is used to retrieve from inputs and store in outputs.</param>
         protected override void SolveInstance(IGH_DataAccess DA)
         {
+
+            bool active = false;
+
+            DeepSpeech deepSpeech = new DeepSpeech(@"C:\Users\psf\AppData\Roaming\Grasshopper\Libraries\Speech\libdeepspeech.so");
+
+
+
             string audioPath = string.Empty;
             string transcript = string.Empty;
 
             string lmPath = @"C:\Users\psf\source\repos\faust\libs\DeepSpeach\deepspeech-0.6.0-models\";
-
             string aModelPath = Path.Combine( lmPath + "output_graph.pb"); //output_graph.pb
             string lmBinary = Path.Combine( lmPath + "lm.binary"); //lm.binary 
             string triePath = Path.Combine( lmPath + "trie"); //trie
@@ -96,8 +99,6 @@ namespace Speech.GH_Components
         {
             get
             {
-                //You can add image files to your project resources and access them like this:
-                // return Resources.IconForThisComponent;
                 return Properties.Icons.SpeechRecognition;
             }
         }
